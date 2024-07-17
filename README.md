@@ -2,6 +2,11 @@
 
 This project is an API for a ToDo List application that allows the creation, reading, updating, and deletion of tasks, as well as user management and authentication.
 
+# Authors
+Allan Vargens @programAllan \
+[Visit my Linkedin](https://www.linkedin.com/in/allan-vargens-silva-973978196/)
+
+
 ## Technologies
 
 - Spring Web
@@ -35,19 +40,19 @@ classDiagram
 
 ```
 
-## Documentation Endpoints
+# Documentation Endpoints
 
-# Controllers
+## Controllers
 
 1. UserController
    Controller responsible for user management.
 
 - newUser(@RequestBody CreateUserDTO createUserDTO): Creates a new user.
 
-  HTTP Method: POST
-  Endpoint: /users
-  Authorization: Not required
-  Request Body:
+  HTTP Method: POST \
+  Endpoint: /users \
+  Authorization: Not required \
+  Request Body: 
 
   ```json
   {
@@ -61,26 +66,26 @@ classDiagram
 
 - listUsers(): Lists all users.
 
-  HTTP Method: GET
-  Endpoint: /users
-  Authorization: Requires authority SCOPE_admin in JWTtoken
-  Response: 200 OK with the list of users.
+  HTTP Method: GET \
+  Endpoint: /users \
+  Authorization: Requires authority SCOPE_admin in JWTtoken \
+  Response: 200 OK with the list of users. 
 
 - updateUser: Updates an existing user.
 
-HTTP Method: PUT
-Endpoint: /users/{id}
-Authorization: Requires the user to be authenticated and be the owner of the provided ID.
-Request Body: a json with username, or email, or password, or a json with the three informations.
+HTTP Method: PUT \ 
+Endpoint: /users/{id} \
+Authorization: Requires the user to be authenticated and be the owner of the provided ID. \
+Request Body: a json with username, or email, or password, or a json with the three informations. \
 Response: 200 OK if the user is successfully updated, 403 Forbidden if the user attempts to update another user.
 
 2. TokenController
    Controller responsible for authentication and JWT token generation.
 
 - login: Logs in a user and returns a JWT token.
-  HTTP Method: POST
-  Endpoint: /login
-  Authorization: Not required
+  HTTP Method: POST \
+  Endpoint: /login \
+  Authorization: Not required \
   Request Body:
   ```json
   {
@@ -88,6 +93,7 @@ Response: 200 OK if the user is successfully updated, 403 Forbidden if the user 
     "password": "allanzinho10"
   }
   ```
+  \
   Response: 200 OK with the JWT token and expiration time, 401 Unauthorized if the credentials are incorrect.
 
 3. TaskController
@@ -95,9 +101,9 @@ Response: 200 OK if the user is successfully updated, 403 Forbidden if the user 
 
 - createTask: Creates a new task.
 
-  HTTP Method: POST
-  Endpoint: /tasks
-  Authorization: Requires authorization and the authenticated user to be the owner of the task.
+  HTTP Method: POST \
+  Endpoint: /tasks \
+  Authorization: Requires authorization and the authenticated user to be the owner of the task. \
   Request Body:
 
   ```json
@@ -111,20 +117,20 @@ Response: 200 OK if the user is successfully updated, 403 Forbidden if the user 
 
 - deleteTask: Deletes an existing task.
 
-  HTTP Method: DELETE
-  Endpoint: /tasks/{id}
-  Authorization: Requires authorization and the authenticated user to be the owner of the task.
+  HTTP Method: DELETE \
+  Endpoint: /tasks/{id} \
+  Authorization: Requires authorization and the authenticated user to be the owner of the task. \
   Response: 200 OK if the task is successfully deleted, 403 Forbidden if the user attempts to delete a task they do not own.
 
 - listTasks: Lists all tasks with pagination.
 
-  HTTP Method: GET
-  Endpoint: /tasks
-  Authorization: Not required
-  Request Parameters: page (default: 0), pageSize (default: 10)
+  HTTP Method: GET \ 
+  Endpoint: /tasks \
+  Authorization: Not required \
+  Request Parameters: page (default: 0), pageSize (default: 10) \
   Response: 200 OK with the paginated list of tasks.
 
-# Entities
+## Entities
 
 1. User
    Represents a user in the system.
@@ -152,7 +158,7 @@ Response: 200 OK if the user is successfully updated, 403 Forbidden if the user 
 6. ResponseTaskDTO
    Data transfer object used to return the list of tasks.
 
-# Setup and Execution
+## Setup and Execution
 
 Clone the repository:
 
@@ -180,5 +186,4 @@ Run the application:
 ./mvnw spring-boot:run
 ```
 
-##Authors
-Allan Vargens @programAllan
+
